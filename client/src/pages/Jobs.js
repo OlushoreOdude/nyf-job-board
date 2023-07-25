@@ -7,8 +7,8 @@ import logo from "./logo.svg";
 
 export function Jobs() {
 	const [jobListings, setJobListings] = useState([]);
-	//const [message, setMessage] = useState([]);
 
+// get jobs from the test route on the server
 	useEffect(() => {
 		fetch("/api/jobs")
 			.then((res) => {
@@ -18,9 +18,7 @@ export function Jobs() {
 				return res.json();
 			})
 			.then((body) => {
-				console.log(body);
-				console.log(body.data.job_listings);
-				setJobListings(body.data.job_listings);
+				setJobListings(body.data.jobs);
 			})
 			.catch((err) => {
 				console.error(err);
@@ -40,7 +38,7 @@ export function Jobs() {
 					test
 				</h1>
 				{jobListings.length > 0 ? (
-					jobListings.map((job, index) => <p key={index}>{job.title}</p>)
+					jobListings.map((job, index) => <p key={index}>{job.job_title}</p>)
 				) : (
 					<p>No job listings found.</p>
 				)}
