@@ -33,7 +33,7 @@ export function Home() {
 					alt="Just the React logo"
 				/>
 				<h1 className="message" data-qa="message">
-					{message}
+					{message}+"Hello testing"
 				</h1>
 				<Link to="/about/this/site">About</Link>
 			</div>
