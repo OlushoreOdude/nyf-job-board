@@ -3,9 +3,9 @@ import React from "react";
 const Footer = () => {
 	return (
 		<footer>
-			<p>
-				My React App. All rights reserved.
-			</p>
+			<h6>
+				NYF React App Footer. All rights reserved.
+			</h6>
 		</footer>
 	);
 };

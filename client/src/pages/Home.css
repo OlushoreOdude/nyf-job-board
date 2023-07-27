@@ -9,3 +9,7 @@
 .message:hover {
 	background-color: yellow;
 }
+
+a {
+	margin:1rem;
+}

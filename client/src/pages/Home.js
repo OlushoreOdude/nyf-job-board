@@ -36,6 +36,7 @@ export function Home() {
 					{message}+"Hello testing"
 				</h1>
 				<Link to="/about/this/site">About</Link>
+				<Link to="/jobs">Jobs</Link>
 			</div>
 		</main>
 	);
