@@ -1,9 +1,10 @@
 import React from "react";
+import "./Header.css";
 
 const Header = () => {
 	return (
-		<header>
-			<h5>This is NYF React App Header</h5>
+		<header className="header-container">
+			<h5 className="header-job-board">Job Board</h5>
 		</header>
 	);
 };
