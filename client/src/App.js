@@ -6,10 +6,12 @@ import Jobs from "./pages/Jobs";
 
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
+import Search  from "./components/Search.jsx";
 
 const App = () => (
 	<>
 		<Header />
+		<Search />
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/about/this/site" element={<About />} />
