@@ -1,5 +1,13 @@
-.logo {
-	width: 100px;
+/* Use Flexbox to make the content container occupy the full viewport height */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Apply flex-grow to the main content to fill the available space */
+.main-content > div {
+  flex-grow: 1;
 }
 
 .message {

@@ -1,24 +1,21 @@
-/* Import the Lato font from Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
-
-
 .header-container {
 	padding: 5px 151px 11px 168px;
 	align-items: center;
-	width: 100%;
+	width: auto;
 	height: 54px;
 	border-bottom: 0.5px solid #a9a9a9;
 	background: #323845;
-	position: fixed; /* Ensure the footer sticks to the top of the page */
+	position: relative;
 	top: 0;
+	font-family: "Railway", sans-serif;
 }
 
 .header-job-board {
 	color: #ececec;
 	text-align: center;
-	font-family: Lato;
-	font-size: 13px;
+	font-size: 20px;
 	font-style: normal;
 	font-weight: 900;
 	line-height: normal;
+	margin-top: 20px;
 }

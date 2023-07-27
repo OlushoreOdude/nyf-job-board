@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = () => {
 	return (
 		<header className="header-container">
-			<h5 className="header-job-board">Job Board</h5>
+			<h1 className="header-job-board">Job Board</h1>
 		</header>
 	);
 };
