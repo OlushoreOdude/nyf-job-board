@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./Home.css";
-import logo from "./logo.svg";
 
 export function Jobs() {
 	const [jobListings, setJobListings] = useState([]);
@@ -28,12 +27,6 @@ export function Jobs() {
 	return (
 		<main role="main">
 			<div>
-				<img
-					className="logo"
-					data-qa="logo"
-					src={logo}
-					alt="Just the React logo"
-				/>
 				<h1 className="message" data-qa="message">
 					test
 				</h1>

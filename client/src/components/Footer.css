@@ -1,0 +1,32 @@
+.footer-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr; /* Divide the container into three equal columns */
+	align-items: center;
+	background-color: #f3f3f3;
+	border-top: 1px solid #000;
+	padding: 20px;
+	bottom: 0;
+	left: 0;
+	width: auto;
+	font-family: "Lato", sans-serif;
+}
+
+.footer-copyright-disclaimer {
+	grid-column: 2; /* Place this element in the second column */
+	font-size: 14px;
+	text-align: center; /* Center the text in the middle column */
+}
+
+.footer-social-links {
+	grid-column: 1;
+	text-align: left;
+}
+
+.footer-community-links {
+	grid-column: 3;
+	text-align: right;
+}
+.footer-social-links p,
+.footer-community-links p {
+	margin: 0;
+}
