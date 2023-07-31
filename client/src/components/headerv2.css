@@ -1,26 +1,19 @@
-.header-container {
-	padding: 5px 151px 11px 168px;
-	align-items: center;
-	width: auto;
-	/* height: 54px; */
-	border-bottom: 0.5px solid #a9a9a9;
-	background: #323845;
-	position: relative;
-	top: 0;
-	font-family: "Railway", sans-serif;
-	text-align: center;
+/* header.css */
+
+/* Header container styles */
+.header {
+  background-color: #333;
+  padding: 16px;
+  text-align: center;
+  color: #fff;
 }
 
-.header-job-board {
-	color: #ececec;
-	text-align: center;
-	font-size: 20px;
-	font-style: normal;
-	font-weight: 900;
-	line-height: normal;
-	margin-top: 20px;
+/* Header title styles */
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
 }
-
 
 /* Header navigation styles */
 .header-nav {
