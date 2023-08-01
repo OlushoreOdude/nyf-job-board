@@ -1,38 +1,41 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import "./Home.css";
 
-export function Home() {
-	const [message, setMessage] = useState("Loading...");
+function Home() {
+  const [jobs, setJobs] = useState([]);
 
-	useEffect(() => {
-		fetch("/api")
-			.then((res) => {
-				if (!res.ok) {
-					throw new Error(res.statusText);
-				}
-				return res.json();
-			})
-			.then((body) => {
-				setMessage(body.message);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}, []);
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get("/api/jobs");
+        const jobData = response.data.data;
+        setJobs(jobData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-	return (
-		<main role="main" className="main-content">
-			<div>
-				<Link to="/about/this/site">About</Link>
-				<Link to="/jobs">Jobs</Link>
-				<h1 className="message" data-qa="message">
-					{`${message} Hello testing`}
-				</h1>
-			</div>
-		</main>
-	);
+    fetchJobs();
+  }, []);
+
+  return (
+    <main role="main" className="main-content">
+      <div>
+        <h1 className="message" data-qa="message">
+          Jobs Board
+        </h1>
+        <ul>
+          {jobs.map((job, index) => (
+            <li key={index}>
+              <strong>{job.title}</strong> - {job.location}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </main>
+  );
 }
 
 export default Home;
