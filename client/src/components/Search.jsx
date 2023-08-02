@@ -49,47 +49,10 @@ const Search = () => {
         <button className="btn-search" onClick={filterByTitle}>
           Search
         </button>
-        <table>
-          <thead>
-            <tr>
-              <th>Job Title</th>
-              <th>Company</th>
-              <th>Location</th>
-              <th>Description</th>
-              <th>Apply</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* Check if filteredResult is an array before using map */}
-            {Array.isArray(filteredResult) ? (
-              filteredResult.map((job) => (
-                <tr key={job.job_id}>
-                  <td>{job.job_title}</td>
-                  <td>{job.company}</td>
-                  <td>{job.location}</td>
-                  <td>{job.description}</td>
-                  <td>
-                    <button className="btn-apply">Apply</button>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="5">No jobs found.</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+        
       </div>
 
-      <div>
-        <label htmlFor="select-option">Search filters</label>
-        <select id="select-option">
-          <option>London</option>
-          <option>Reading</option>
-          <option>Southampton</option>
-        </select>
-      </div>
+      
     </>
   );
 };
