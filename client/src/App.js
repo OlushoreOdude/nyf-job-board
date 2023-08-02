@@ -7,11 +7,9 @@ import Jobs from "./pages/Jobs";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 
-
 const App = () => (
 	<>
 		<Header />
-		
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/about/this/site" element={<About />} />
