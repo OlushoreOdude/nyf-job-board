@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Search  from "../components/Search.jsx";
 
 import "./Home.css";
 import logo from "./logo.svg";
@@ -46,6 +47,7 @@ export function Home() {
 				<Link to="/about/this/site">About</Link>
 				<Link to="/jobs">Jobs</Link>
 			</div>
+			<Search />
 		</main>
 	);
 }
