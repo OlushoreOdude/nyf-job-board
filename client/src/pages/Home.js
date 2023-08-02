@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import Search  from "../components/Search.jsx";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -26,6 +28,7 @@ function Home() {
         <h1 className="message" data-qa="message">
           Jobs Board
         </h1>
+		<Search />
         <ul>
           {jobs.map((job, index) => (
             <li key={index}>
