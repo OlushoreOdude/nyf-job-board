@@ -10,7 +10,7 @@
 .header-job-board {
   color: #ececec;
   text-align: left;
-  font-size: 12px;
+  font-size: 0.75em;
   line-height: normal;
 }
 
@@ -22,7 +22,7 @@
 
 .header-nav a {
   color: #fff;
-  font-size: 12px;
+  font-size: 0.75em;
   text-decoration: none;
   margin: 0 8px;
 }

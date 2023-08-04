@@ -11,19 +11,19 @@
 
 .footer-social-links {
   flex: 1;
-    font-size: 12px;
+  font-size: 0.75em;
   text-align: left;
 }
 
 .footer-copyright-disclaimer {
   flex: 1;
-  font-size: 10px;
+  font-size: 0.5em;
   text-align: center;
 }
 
 .footer-community-links {
   flex: 1;
-  font-size: 12px;
+  font-size: 0.75em;
   text-align: right;
 }
 
