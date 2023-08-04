@@ -2,7 +2,7 @@
 	padding: 5px 151px 11px 168px;
 	align-items: center;
 	width: auto;
-	height: 54px;
+	/* height: 54px; */
 	border-bottom: 0.5px solid #a9a9a9;
 	background: #323845;
 	position: relative;
@@ -19,3 +19,26 @@
 	line-height: normal;
 	margin-top: 20px;
 }
+
+/* Header navigation styles */
+.header-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Add spacing between header title and navigation links */
+}
+
+/* NavLink styles for navigation links */
+.header-nav a {
+  color: #fff;
+  text-decoration: none; /* Remove underline from links */
+  margin: 0 10px; /* Add spacing between navigation links */
+  padding: 8px 12px; /* Add padding for better click area */
+}
+
+/* Active NavLink styles */
+.header-nav a.active {
+  /* Add styles for the active NavLink */
+  background-color: #555; /* Set background color for the active link */
+  border-radius: 4px; /* Add rounded corners to the active link */
+}
+
