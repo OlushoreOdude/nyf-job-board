@@ -1,23 +1,57 @@
-/* Use Flexbox to make the content container occupy the full viewport height */
+/* Used Flexbox to create three columns */
 .main-content {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
+  font-family: "Lato", sans-serif;
 }
 
-/* Apply flex-grow to the main content to fill the available space */
-.main-content > div {
-  flex-grow: 1;
+/* Used flex-grow for the job search container to make it occupy the full height */
+.job-search-container {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ccc;
+  margin-left: 5%;
 }
 
-.message {
-	color: blue;
+/* Used flex-grow for the JobCardContainer to make it fill out the available vertical space */
+.job-card-container {
+  flex: 1;
+  overflow-y: auto; /* To enable scrolling if needed */
+  margin: 20px;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 1%;
+  line-height: 140%;
 }
 
-.message:hover {
-	background-color: yellow;
+/* Used styles to the selected job details container */
+.selected-job-container {
+  flex: 1;
+  padding: 10px;
+  border-left: 1px solid #ccc;
+  margin-left: 10px;
 }
 
-a {
-	margin:1rem;
+/* Styles for the job search input if you have one */
+.job-search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Styles for the job card if you have one */
+.job-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Styles for the selected job details if you have one */
+.selected-job {
+  font-size: 15px;
+  /* Your styles for the selected job details container */
 }
