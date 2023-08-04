@@ -1,0 +1,77 @@
+/* card.css */
+button,
+.card {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+button,
+button div,
+.card {
+  margin: 0;
+  border: 0;
+}
+
+/* Set button to take the size of the div */
+.card-button {
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  border: none;
+  background: none;
+  width: auto; /* Allow the button to take the div's width */
+  height: auto; /* Allow the button to take the div's height */
+}
+.card-button {
+  /* Reset default button styles */
+  appearance: none;
+  background-color: grey;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  width: auto;
+}
+/* Card styles */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styles */
+.card h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Description styles */
+.card p {
+  margin-top: 8px;
+  color: #666;
+}
+
+.card-button .card {
+  margin: 0;
+  display: block;
+}
+.card-button {
+  margin-bottom: 16px;
+}
+
+.button {
+  padding: 0.5rem;
+  border-color: #333;
+  border: 1px solid #ef1010;
+  margin: 0.25rem;
+}
+
+.bigone {
+  height: 100vh;
+}

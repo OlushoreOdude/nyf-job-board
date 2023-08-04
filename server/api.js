@@ -1,6 +1,9 @@
 import { Router } from "express";
 import axios from "axios";
 
+// import data from data.json at root.
+import jobsData from "../data.json";
+
 const router = Router();
 
 router.get("/", (_, res) => {
@@ -26,4 +29,9 @@ router.get("/jobs", async (_, res) => {
   }
 });
 
+
+// route for jobsData
+router.get("/jobs-test", (_, res) => {
+  res.json({ data: jobsData });
+});
 export default router;
