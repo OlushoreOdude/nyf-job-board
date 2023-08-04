@@ -1,0 +1,63 @@
+/* homev3.css */
+
+.message {
+  color: blue;
+}
+
+.message:hover {
+  background-color: yellow;
+}
+
+a {
+  margin: 1rem;
+}
+
+.container {
+  display: flex;
+  /*  flex-wrap: wrap; */
+  justify-content: center;
+  text-align: center;
+}
+
+/* Section styles */
+.section {
+  flex-basis: calc(
+    33.33% - 16px
+  ); /* each section occupies 33.33% of the available width with some spacing */
+  padding: 16px;
+  margin: 0;
+}
+
+/* On avergae screens size, switch to Grid layout */
+@media screen and (max-width: 1014px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(2, 1fr); /* Two rows */
+    /* grid-gap: 16px; */
+  }
+
+  .section {
+    flex-basis: auto; /* Reset flex-basis */
+    grid-row: auto; /* Reset grid-row */
+    grid-column: auto; /* Reset grid-column */
+  }
+  .section:nth-child(3) {
+    grid-row: 2 / span 2; /* Span two rows */
+    grid-column: 1 / span 2; /* Span two columns */
+  }
+}
+
+/* On small screens size, switch back to flex */
+@media screen and (max-width: 650px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section {
+    flex-basis: 100%; /* Reset flex-basis */
+    grid-row: auto; /* Reset grid-row */
+    grid-column: auto; /* Reset grid-column */
+  }
+}
