@@ -1,5 +1,5 @@
 
-import "./card.css";
+import "./Card.css";
 
 const CardButtonShowJob = ({ data, onClick }) => {
 	return (
