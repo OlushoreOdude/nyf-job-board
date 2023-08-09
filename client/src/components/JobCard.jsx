@@ -14,7 +14,7 @@ const JobCard = ({ jobs, onJobClick }) => {
 				<div
 					key={job.slug}
 					className="job-card"
-					// onClick={() => onJobClick(job)}
+					onClick={() => onJobClick(job)}
 					onKeyDown={(event) => handleKeyPress(event, job)} // Add keyDown event listener
 					tabIndex={0}
 					role="button"
@@ -29,7 +29,7 @@ const JobCard = ({ jobs, onJobClick }) => {
 
 JobCard.propTypes = {
 	jobs: PropTypes.array.isRequired,
-	// onJobClick: PropTypes.func.isRequired,
+	onJobClick: PropTypes.func.isRequired,
 };
 
 export default JobCard;
