@@ -17,7 +17,7 @@ function Home() {
 			try {
 				const response = await axios.get("/api/jobs");
 				console.log(response);
-				setJobsData(response.data.data.slice(0, 10)); // Only take the first 10 jobs
+				setJobsData(response.data.data.slice(0, 10));
 				setLoading(false);
 			} catch (error) {
 				console.log(error);
@@ -49,12 +49,12 @@ function Home() {
 
 			{/* Second Column: Job Card Container which will show 10 job card*/}
 			<div className="job-card-container">
-				<JobCardContainer jobs={ jobsData } />
+				<JobCardContainer jobs={jobsData} />
 			</div>
 
 			{/* Third Column: Selected Job Details */}
 			<div className="selected-job-container">
-						<h4>No job is selected</h4>
+				<h4>No job is selected</h4>
 			</div>
 		</main>
 	);
