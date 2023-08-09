@@ -3,13 +3,17 @@ import JobCardContainer from "../components/JobCardContainer.jsx";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import SelectedJob from "../components/SelectedJob.jsx";
+
 import "../global.css";
 import "./Home.css";
+
 
 function Home() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [jobsData, setJobsData] = useState([]);
+	const [selectedJob, setSelectedJob] = useState(null);
 
 	useEffect(() => {
 		// Fetch data from server
@@ -17,7 +21,7 @@ function Home() {
 			try {
 				const response = await axios.get("/api/jobs");
 				console.log(response);
-				setJobsData(response.data.data.slice(0, 10));
+				setJobsData(response.data.data.slice(0, 10)); // Only take the first 10 jobs
 				setLoading(false);
 			} catch (error) {
 				console.log(error);
@@ -28,6 +32,10 @@ function Home() {
 
 		fetchJobs();
 	}, []);
+
+	const handleJobClick = (job) => {
+		setSelectedJob(job);
+	};
 
 	if (loading) {
 		return <p>Loading...</p>;
@@ -49,12 +57,12 @@ function Home() {
 
 			{/* Second Column: Job Card Container which will show 10 job card*/}
 			<div className="job-card-container">
-				<JobCardContainer jobs={jobsData} />
+				<JobCardContainer jobs={jobsData} onJobClick={handleJobClick} />
 			</div>
 
 			{/* Third Column: Selected Job Details */}
 			<div className="selected-job-container">
-				<h4>No job is selected</h4>
+				<SelectedJob selectedJob={selectedJob} jobs={jobsData} />
 			</div>
 		</main>
 	);
