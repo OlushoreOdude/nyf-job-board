@@ -1,19 +1,12 @@
 import React from "react";
+import JobCard from "./JobCard.jsx";
 
 const JobCardContainer = ({ jobs }) => {
-
-  return (
+	return (
 		<div>
-			{jobs.map((job) => (
-				// line 9 to 13 should be a separate component called JobCard.jsx to display one job
-				<div key={job.slug}>
-					<strong>Title:</strong> {job.title} <br />
-					<strong>Location:</strong> {job.location}
-				</div>
-			))}
+			<JobCard jobs={jobs} />
 		</div>
 	);
 };
-
 
 export default JobCardContainer;
