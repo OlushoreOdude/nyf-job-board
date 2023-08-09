@@ -20,10 +20,6 @@
   flex: 1;
   overflow-y: auto; /* To enable scrolling if needed */
   margin: 20px;
-  font-size: 1em;
-  font-weight: 400;
-  letter-spacing: 1%;
-  line-height: 140%;
 }
 
 /* Used styles to the selected job details container */
@@ -40,6 +36,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 10rem;
 }
 
 /* Styles for the job card if you have one */
@@ -52,6 +49,6 @@
 
 /* Styles for the selected job details if you have one */
 .selected-job {
-  font-size: 15px;
+  font-size: 1rem;
   /* Your styles for the selected job details container */
 }
