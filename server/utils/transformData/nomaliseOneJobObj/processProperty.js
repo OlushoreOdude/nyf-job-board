@@ -2,7 +2,7 @@
  * Process a property based on its type and specified limits.
  *
  * @param {any} input - Input property to be processed.
- * @param {number} maxWords - Maximum number of words (for strings) or items (for arrays and objects).
+ * @param {number} maxWords - Maximum number of words (for strings) .
  * @param {number} maxArrayItems - Maximum number of items (for arrays and objects).
  * @returns {any} - Processed property.
  */
