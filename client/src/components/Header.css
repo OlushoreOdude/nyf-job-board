@@ -3,32 +3,53 @@
   align-items: center;
   justify-content: space-between;
   background: #323845;
-  font-family: "Lato", sans-serif;
-  padding: 5px 50px;
+  font-family: "Lato", "Raleway", sans-serif;
+  padding: 0.5rem 5rem;
 }
 
 .header-job-board {
   color: #ececec;
   text-align: left;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: normal;
 }
 
 .header-nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .header-nav a {
   color: #fff;
-  font-size: 12px;
+  font-size: 0.75rem;
   text-decoration: none;
-  margin: 0 8px;
+  margin: 0 0.5rem;
 }
 
 .header-nav a.active {
   background-color: #555;
-  border-radius: 4px;
-  padding: 3px 10px;
+  border-radius: 0.25rem;
+  padding: 0.1875rem 0.625rem;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 1218px) {
+  .header-container {
+    padding: 0.625rem;
+    flex-direction: row;
+    align-items: center;
+  }
+  .header-job-board {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  .header-nav {
+    margin-top: 0.5rem;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  .header-nav a {
+    margin: 0.3125rem;
+  }
 }
