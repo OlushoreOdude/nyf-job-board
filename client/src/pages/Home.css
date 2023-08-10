@@ -1,54 +1,29 @@
-/* Used Flexbox to create three columns */
 .main-content {
-  display: flex;
-  min-height: 100vh;
-  font-family: "Lato", sans-serif;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+	font-family: "Lato", "Raleway", sans-serif;
 }
 
-/* Used flex-grow for the job search container to make it occupy the full height */
-.job-search-container {
-  flex: 1;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #ccc;
-  margin-left: 5%;
+.job-search-section {
+	grid-column: 2 / span 2;
+	border-right: 1px solid #ccc;
 }
 
-/* Used flex-grow for the JobCardContainer to make it fill out the available vertical space */
-.job-card-container {
-  flex: 1;
-  overflow-y: auto; /* To enable scrolling if needed */
-  margin: 20px;
+.job-card-section {
+	grid-column: 4 / span 3;
 }
 
-/* Used styles to the selected job details container */
-.selected-job-container {
-  flex: 1;
-  padding: 10px;
-  border-left: 1px solid #ccc;
-  margin-left: 10px;
+.selected-job-section {
+	grid-column: 7 / span 3;
+	padding: 10px;
+	border: 1px solid #a9a9a9;
+	border-radius: 0.625rem;
+	background: #f5f5f5;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
 }
 
-/* Styles for the job search input if you have one */
-.job-search-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 10rem;
-}
-
-/* Styles for the job card if you have one */
-.job-card {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-/* Styles for the selected job details if you have one */
 .selected-job {
-  font-size: 1rem;
-  /* Your styles for the selected job details container */
+	font-size: 1rem;
 }

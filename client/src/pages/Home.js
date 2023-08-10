@@ -51,17 +51,17 @@ function Home() {
 	return (
 		<main role="main" className="main-content">
 			{/* First Column: Job Search */}
-			<div className="job-search-container">
+			<div className="job-search-section">
 				<Search className="job-search-input" />
 			</div>
 
 			{/* Second Column: Job Card Container which will show 10 job card*/}
-			<div className="job-card-container">
+			<div className="job-card-section">
 				<JobCardContainer jobs={jobsData} onJobClick={handleJobClick} />
 			</div>
 
 			{/* Third Column: Selected Job Details */}
-			<div className="selected-job-container">
+			<div className="selected-job-section">
 				<SelectedJob selectedJob={selectedJob} jobs={jobsData} />
 			</div>
 		</main>
