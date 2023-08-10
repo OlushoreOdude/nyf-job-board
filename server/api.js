@@ -3,7 +3,7 @@ import axios from "axios";
 
 // import data from data.json at root.
 import jobsData from "../data.json";
-
+import myRouteHandler from "./utils/refreshData";
 const router = Router();
 
 router.get("/", (_, res) => {
@@ -35,6 +35,7 @@ router.get("/jobs-test", (_, res) => {
   res.json({ data: jobsData });
 });
 
-
+// route for refresh jobs
+router.get("/jobs-refresh-test", myRouteHandler);
 export default router;
 

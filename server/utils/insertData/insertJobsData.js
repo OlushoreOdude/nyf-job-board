@@ -5,7 +5,7 @@ import db from "./dbConnect";
 async function insertJobData(jobDataArray) {
 	const client = await db.pool.connect();
 
-	console.log(jobDataArray, "jobs data arrya");
+	//console.log(jobDataArray, "jobs data arrya");
 
 	try {
 		// Start a transaction

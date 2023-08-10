@@ -7,8 +7,9 @@ export const makeRapidFetch = async (options) => {
 		return response.data;
 	} catch (error) {
 		// Handle the error here
-		console.error("An error occurred:", error);
-		//throw error again to propagate it to the caller
-		throw error;
+		const errorMessage = "An error occurred in make fetch";
+		// Return an error object with the error message and original error
+		//console.log(error, "this is an error");
+		return { error: errorMessage, originalError: error };
 	}
 };
