@@ -1,29 +1,10 @@
-/* Applied flex styles to the job card container */
 .job-card-container {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	overflow-y: auto; /* Enable scrolling if needed */
-	margin: 20px;
+	overflow-y: auto; 
+	margin: 0.3rem;
+	padding: 1rem;
 }
 
-/* Applied styles to individual job cards. It will be moved to JobCard.css in the next step*/
-.job-card {
-	border: 1px solid #a9a9a9;
-	border-radius: 0.625rem;
-	background: #f5f5f5;
-	padding: 10px;
-	margin: 10px 0; /* Add spacing between job cards */
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-	cursor: pointer;
-	transition: transform 0.2s ease-in-out;
-	font-size: 1em;
-	font-weight: 400;
-	letter-spacing: 1%;
-	line-height: 160%;
-
-	/* Hover effect */
-	&:hover {
-		transform: translateY(-3px);
-	}
-}
