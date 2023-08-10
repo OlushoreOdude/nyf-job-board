@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import "./SelectedJob.css";
+
 const SelectedJob = ({ selectedJob, jobs }) => {
 	if (!selectedJob && jobs.length > 0) {
 		// Display details of the first job if no job is selected

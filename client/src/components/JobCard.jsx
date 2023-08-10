@@ -24,7 +24,7 @@ const JobCard = ({ jobs, onJobClick }) => {
 					<div className="job-title">{job.title}</div>
 					<div className="company-name">{job.company_name}</div>
 					<div className="location">{job.location}</div>
-					<button className="job-button">View Details</button>
+					<button className="job-details-btn">View Details</button>
 				</div>
 			))}
 		</div>
