@@ -1,24 +1,44 @@
 .main-content {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(10, 1fr);
 	font-family: "Lato", "Raleway", sans-serif;
+	gap: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .job-search-section {
 	grid-column: 2 / span 2;
-	border: 1px solid #ccc;
-  padding: 1rem;
+	border-right: 0.0625rem solid #ccc;
+	border-left: 0.0625rem solid #ccc;
+	padding: 1rem;
 }
 
 .job-card-section {
 	grid-column: 4 / span 3;
-  padding: 1rem;
+	padding: 1rem;
 }
 
 .selected-job-section {
 	grid-column: 7 / span 3;
-	border: 1px solid #a9a9a9;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+	border: 0.0625rem solid #a9a9a9;
+	padding: 1rem;
 }
 
+/* Media query for responsiveness */
+@media screen and (max-width: 1218px) {
+	.main-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0.625rem;
+	}
+	.job-search-section,
+	.job-card-section,
+	.selected-job-section {
+		grid-column: auto;
+		border: none;
+		box-shadow: none;
+		padding: 1rem 0;
+	}
+}
