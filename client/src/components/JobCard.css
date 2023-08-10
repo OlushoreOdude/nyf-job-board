@@ -41,7 +41,7 @@
 	grid-area: location;
 }
 
-.job-button {
+.job-details-btn {
 	grid-area: button;
 	background-color: #323845;
 	color: white;
@@ -55,6 +55,6 @@
 	text-align: center;
 }
 
-.job-button:hover {
+.job-details-btn:hover {
 	background-color: #b4001b;
 }
