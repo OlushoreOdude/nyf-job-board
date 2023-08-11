@@ -1,0 +1,75 @@
+.search-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	overflow-y: auto;
+	gap: 0.5rem 0.5rem;
+}
+
+.search-section h4 {
+	position: relative;
+}
+
+.search-section h4::after {
+  content: "";
+  display: block;
+  margin-top: 0.1rem; 
+  width: 3.7rem; 
+  height: 0.3rem;
+  background-color: black;
+}
+.job-input {
+	width: auto;
+	padding: 10px;
+	margin-bottom: 10px;
+	font-size: 1rem;
+	font-weight: 400;
+	letter-spacing: 1%;
+	line-height: 160%;
+}
+
+.btn-search {
+	background-color: #323845;
+	color: white;
+	border: none;
+	border-radius: 0.3125rem;
+	cursor: pointer;
+	width: auto;
+	text-align: center;
+	padding: 0.5rem 1rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.btn-search:hover {
+	background-color: #b4001b;
+}
+
+.job-details-btn:hover {
+	background-color: #b4001b;
+}
+
+.checkbox-container {
+	display: grid;
+	grid-template-rows: 1em auto;
+	gap: 0.5em;
+	font-size: 1rem;
+	font-weight: 400;
+	letter-spacing: 1%;
+	line-height: 160%;
+}
+
+.checkbox-container label {
+  display: inline-block;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 1rem; /* Adjust this value to create spacing */
+} 
+/* Adjustments for responsiveness */
+@media (max-width: 1218px) {
+	.job-input {
+		padding: 8px;
+	}
+}
