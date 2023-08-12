@@ -10,7 +10,7 @@ const SearchForm = (props) => {
   return (
     <>
       <div>
-        <h4>Search for job by title</h4>
+        <h4>Search form</h4>
         <input
           className="job-input"
           placeholder="Job title..."
