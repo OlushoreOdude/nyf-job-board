@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchByTitle = (props) => {
+const SearchForm = (props) => {
   const { onClick }  = props;
   const [input, setInput] =useState("");
   const handeleOnClick =() =>{
@@ -27,4 +27,4 @@ const SearchByTitle = (props) => {
   );
 };
 
-export default SearchByTitle;
+export default SearchForm;
