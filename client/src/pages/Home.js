@@ -1,4 +1,4 @@
-import Search from "../components/Search.jsx";
+import SearchByTitle from "../components/SearchByTitle.jsx";
 import JobCardContainer from "../components/JobCardContainer.jsx";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -48,11 +48,16 @@ function Home() {
 	if (!jobsData || jobsData.length === 0) {
 		return <p>No jobs data available.</p>;
 	}
+
+	const handleSearchByTitle =(titleFilterInput)=>{
+		console.log(titleFilterInput);
+	};
+
 	return (
 		<main role="main" className="main-content">
 			{/* First Column: Job Search */}
 			<div className="job-search-section">
-				<Search className="job-search-input" />
+				<SearchByTitle onClick={handleSearchByTitle} className="job-search-input" />
 			</div>
 
 			{/* Second Column: Job Card Container which will show 10 job card*/}
