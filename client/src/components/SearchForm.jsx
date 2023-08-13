@@ -1,27 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 
 const SearchForm = (props) => {
   const { onClick }  = props;
-  const [input, setInput] =useState("");
-  const handeleOnClick =() =>{
-    onClick(input);
+  const handeleOnSubmit =(event) =>{
+    event.preventDefault();
+    console.log(event.target.elements.title.value);
+    console.log(event.target.elements.location.value);
+    const { title,location } = event.target.elements;
+    onClick({
+      title: title.value,
+      location: location.value,
+    });
   };
 
   return (
     <>
       <div>
         <h4>Search form</h4>
-        <input
-          className="job-input"
-          placeholder="Job title..."
-          onChange = {(event)=>{
-            setInput(event.target.value);
-          }
-        }
-        />
-        <button className="btn-search" onClick={handeleOnClick}>
-          Search
-        </button>
+        <form onSubmit={handeleOnSubmit}>
+          <input
+            name="title"
+            type="text"
+            className="job-input"
+            placeholder="Job title..."
+          />
+          <input
+            name="location"
+            type="text"
+            className="job-input"
+            placeholder="Location..."
+          />
+          <button className="btn-search" type="submit">
+            Search
+          </button>
+        </form>
       </div>
     </>
   );
