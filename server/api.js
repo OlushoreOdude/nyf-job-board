@@ -5,7 +5,7 @@ import axios from "axios";
 import jobsData from "../data.json";
 import myRouteHandler from "./utils/refreshData";
 const router = Router();
-import arbeitNowRouteRH from "./utils/Sana/arbeitNowRoute";
+import arbeitNowRouteRH from "./utils/arbeitNowRoute";
 const { arbeitNowRoute } = arbeitNowRouteRH;
 
 router.get("/", (_, res) => {
