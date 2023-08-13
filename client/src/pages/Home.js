@@ -1,4 +1,4 @@
-import SearchByTitle from "../components/SearchByTitle.jsx";
+import SearchForm from "../components/SearchForm.jsx";
 import JobCardContainer from "../components/JobCardContainer.jsx";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -57,7 +57,7 @@ function Home() {
 		<main role="main" className="main-content">
 			{/* First Column: Job Search */}
 			<div className="job-search-section">
-				<SearchByTitle onClick={handleSearchByTitle} className="job-search-input" />
+				<SearchForm onClick={handleSearchByTitle} className="job-search-input" />
 			</div>
 
 			{/* Second Column: Job Card Container which will show 10 job card*/}
