@@ -1,0 +1,55 @@
+.search-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Heading style */
+.search-heading {
+    font-size: 1.25rem;
+    position: relative;
+}
+
+.search-heading h5 {
+    font-weight: lighter;
+}
+
+/* Red line under the heading */
+.search-heading::after {
+    content: "";
+    display: block;
+    width: 25%;
+    height: 0.32rem;
+    background-color: #b4001b;
+    position: absolute;
+}
+
+/* Styles for input fields */
+.job-input {
+    width: 80%;
+    padding: 0.5rem;
+    border: 0.0625rem solid #a9a9a9;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-show-results {
+    background-color: #323845;
+    color: white;
+    border: none;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease-in-out,
+        background-color 0.2s ease-in-out;
+
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-show-results:hover {
+    background-color: #b4001b;
+}
