@@ -5,6 +5,8 @@ import axios from "axios";
 import jobsData from "../data.json";
 import myRouteHandler from "./utils/refreshData";
 const router = Router();
+import arbeitNowRouteRH from "./utils/Sana/arbeitNowRoute";
+const { arbeitNowRoute } = arbeitNowRouteRH;
 
 router.get("/", (_, res) => {
 	res.json({ message: "JOBS BOARD" });
@@ -34,6 +36,9 @@ router.get("/jobs", async (_, res) => {
 router.get("/jobs-test", (_, res) => {
   res.json({ data: jobsData });
 });
+
+// route for Arbeitnow data
+router.get("/arbeitnow-test", arbeitNowRoute);
 
 // route for refresh jobs
 router.get("/jobs-refresh-test", myRouteHandler);
