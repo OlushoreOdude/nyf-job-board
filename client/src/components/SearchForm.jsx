@@ -6,13 +6,14 @@ const SearchForm = (props) => {
     event.preventDefault();
     console.log(event.target.elements.title.value);
     console.log(event.target.elements.location.value);
-    const { title,location } = event.target.elements;
+    console.log(event.target.elements.job_type.value);
+    const { title,location,job_type } = event.target.elements;
     onClick({
       title: title.value,
       location: location.value,
+      job_type: job_type.value,
     });
   };
-
   return (
     <>
       <div>
@@ -29,6 +30,12 @@ const SearchForm = (props) => {
             type="text"
             className="job-input"
             placeholder="Location..."
+          />
+          <input
+            name="job_type"
+            type="text"
+            className="job-input"
+            placeholder="Job type..."
           />
           <button className="btn-search" type="submit">
             Search
