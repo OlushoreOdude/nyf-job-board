@@ -26,6 +26,10 @@
   font-size: 1rem;
   line-height: normal;
 }
+.header-job-board img {
+  width: 2rem;
+  height: 2rem;
+}
 
 .header-nav {
   display: flex;
