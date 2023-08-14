@@ -36,46 +36,46 @@ const SearchForm = (props) => {
             placeholder="Job title..."
           />
           <h4 className="search-heading">Search filters</h4>
-          <h5>Search by location</h5>
+          <h5>Filter by location</h5>
           <input
             name="location"
             type="text"
             className="job-input"
             placeholder="Location..."
           />
-          <div>
+          <div className="job-type-container">
+            <h5>Filter by job type</h5>
             <label>
-              Job Type:
-              Hybride
               <input
                 type="checkbox"
                 value="hybrid"
                 checked={selectedJobTypes.includes("hybrid")}
                 onChange={handleCheckboxChange}
               />
+              Hybrid
             </label>
             <label>
-              Remote
               <input
                 type="checkbox"
                 value="remote"
                 checked={selectedJobTypes.includes("remote")}
                 onChange={handleCheckboxChange}
               />
+              Remote
             </label>
             <label>
-              Onsite
               <input
                 type="checkbox"
                 value="onsite"
                 checked={selectedJobTypes.includes("onsite")}
                 onChange={handleCheckboxChange}
               />
+              Onsite
             </label>
           </div>
           <button className="btn-show-results" type="submit">
-          SHOW RESULTS
-        </button>
+            SHOW RESULTS
+          </button>
         </form>
       </div>
     </>
