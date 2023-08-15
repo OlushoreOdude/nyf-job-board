@@ -33,9 +33,15 @@ function Home() {
 		fetchJobs();
 	}, []);
 
-	const handleJobClick = (job) => {
-		setSelectedJob(job);
-	};
+const handleJobClick = (job) => {
+	setSelectedJob(job);
+	// Find the selected job section and scroll to it
+	const selectedJobSection = document.querySelector(".selected-job-section");
+	if (selectedJobSection) {
+		selectedJobSection.scrollIntoView({ behavior: "smooth" });
+	}
+};
+
 
 	if (loading) {
 		return <p>Loading...</p>;
