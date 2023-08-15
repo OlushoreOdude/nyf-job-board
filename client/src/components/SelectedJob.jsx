@@ -4,25 +4,31 @@ import PropTypes from "prop-types";
 import "./SelectedJob.css";
 
 const SelectedJob = ({ selectedJob, jobs }) => {
-	if (!selectedJob && jobs.length > 0) {
+	let jobToDisplay = selectedJob;
+
+	if (!jobToDisplay && jobs.length > 0) {
 		// Display details of the first job if no job is selected
-		selectedJob = jobs[0];
+		jobToDisplay = jobs[0];
 	}
 
-	return (
+  return (
 		<div className="selected-job-container">
-			<h4>Selected Job Details:</h4>
-			{selectedJob && (
+			{jobToDisplay && (
 				<div className="selected-job">
-					<strong>Title:</strong> {selectedJob.title} <br />
-					<strong>Location:</strong> {selectedJob.location} <br />
+					<h4>Selected Job Details:</h4>
+					<strong>Title:</strong> {jobToDisplay.title} <br />
+					<strong>Location:</strong> {jobToDisplay.location} <br />
 					<strong>Description:</strong>
 					<div
 						className="description-content"
-						dangerouslySetInnerHTML={{ __html: selectedJob.description }}
-						// Using dangerouslySetInnerHTML is generally discouraged in React, as it can open up security vulnerabilities. This must be changed once we have the DB schema up and running and we get the data from the internal API.
+						dangerouslySetInnerHTML={{
+							__html: jobToDisplay.description,
+						}}
 					/>
 				</div>
+			)}
+			{!jobToDisplay && (
+				<div className="no-job-selected">No job selected or available.</div>
 			)}
 		</div>
 	);
