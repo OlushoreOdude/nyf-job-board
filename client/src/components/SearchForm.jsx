@@ -4,15 +4,11 @@ import "./SearchForm.css";
 
 const SearchForm = (props) => {
   const { onClick } = props;
-  const [selectedJobTypes, setSelectedJobTypes] = useState([]);
+  const [isRemote, setIsRemote] = useState(false);
 
   const handleCheckboxChange = (event) => {
-    const value = event.target.value;
-    if (selectedJobTypes.includes(value)) {
-      setSelectedJobTypes(selectedJobTypes.filter((type) => type !== value));
-    } else {
-      setSelectedJobTypes([...selectedJobTypes, value]);
-    }
+    const value = event.target.checked;
+    setIsRemote(value);
   };
 
   const handeleOnSubmit = (event) => {
@@ -21,7 +17,7 @@ const SearchForm = (props) => {
     onClick({
       title: title.value,
       location: location.value,
-      job_type: selectedJobTypes.join(", "), // Convert array to comma-separated string
+      is_remote: isRemote,
     });
   };
   return (
@@ -48,29 +44,11 @@ const SearchForm = (props) => {
             <label>
               <input
                 type="checkbox"
-                value="hybrid"
-                checked={selectedJobTypes.includes("hybrid")}
-                onChange={handleCheckboxChange}
-              />
-              Hybrid
-            </label>
-            <label>
-              <input
-                type="checkbox"
                 value="remote"
-                checked={selectedJobTypes.includes("remote")}
+                checked={isRemote}
                 onChange={handleCheckboxChange}
               />
               Remote
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                value="onsite"
-                checked={selectedJobTypes.includes("onsite")}
-                onChange={handleCheckboxChange}
-              />
-              Onsite
             </label>
           </div>
           <button className="btn-show-results" type="submit">
