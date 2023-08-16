@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import "./JobCard.css";
 
 const JobCard = ({ jobs, onJobClick }) => {
-    const [selectedJobSlug, setSelectedJobSlug] = useState(jobs[0]?.slug);
+    const [selectedJobSlug, setSelectedJobSlug] = useState(jobs[0]?.job_id);
 
     const handleCardClick = (job) => {
-        setSelectedJobSlug(job.slug);
+        setSelectedJobSlug(job.job_id);
         onJobClick(job);
     };
 
@@ -21,18 +21,18 @@ const JobCard = ({ jobs, onJobClick }) => {
         <div>
             {jobs.map((job) => (
                 <div
-                    key={job.slug}
+                    key={job.job_id}
                     className={`job-card ${
-                        selectedJobSlug === job.slug ? "highlighted" : ""
+                        selectedJobSlug === job.job_id ? "highlighted" : ""
                     }`}
                     onClick={() => handleCardClick(job)}
                     onKeyDown={(event) => handleKeyPress(event, job)}
                     tabIndex={0}
                     role="button"
                 >
-                    <div className="job-title">{job.title}</div>
-                    <div className="company-name">{job.company_name}</div>
-                    <div className="location">{job.location}</div>
+                    <div className="job-title">{job.job_title}</div>
+                    <div className="company-name">{job.job_company_name}</div>
+                    <div className="location">{job.registered_office}</div>
                     <button className="job-details-btn">View Details</button>
                 </div>
             ))}

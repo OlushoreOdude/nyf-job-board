@@ -16,13 +16,13 @@ const SelectedJob = ({ selectedJob, jobs }) => {
 			{jobToDisplay && (
 				<div className="selected-job">
 					<h4>Selected Job Details:</h4>
-					<strong>Title:</strong> {jobToDisplay.title} <br />
-					<strong>Location:</strong> {jobToDisplay.location} <br />
+					<strong>Title:</strong> {jobToDisplay.job_title} <br />
+					<strong>Location:</strong> {jobToDisplay.registered_office} <br />
 					<strong>Description:</strong>
 					<div
 						className="description-content"
 						dangerouslySetInnerHTML={{
-							__html: jobToDisplay.description,
+							__html: jobToDisplay.job_description,
 						}}
 					/>
 				</div>
