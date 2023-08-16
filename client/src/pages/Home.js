@@ -55,9 +55,12 @@ const handleJobClick = (job) => {
 		return <p>No jobs data available.</p>;
 	}
 
-	const handleSearchByTitle =(titleFilterInput)=>{
-		console.log(titleFilterInput);
-	};
+	const handleSearchByTitle = async (titleFilterInput)=>{
+		const { title, location, is_remote } = titleFilterInput;
+		const response = await axios.get(`/api/jobs-Arbeit?title=${title}&location=${location}&is_remote=${is_remote}`);
+		console.log(response.data);
+		setJobsData(response.data.data.slice(0, 10));
+};
 
 	return (
 		<main role="main" className="main-content">
