@@ -20,10 +20,10 @@ function Home() {
 		const fetchJobs = async () => {
 			try {
 				const response = await axios.get("/api/jobs");
-				console.log(response);
-				setJobsData(response.data.data.slice(0, 10)); // Only take the first 10 jobs
+				console.log("Response:", response.data); // Log the entire response data
+				setJobsData(response.data.data.dataT.slice(0,10));
 				setLoading(false);
-			} catch (error) {
+			}catch(error){
 				console.log(error);
 				setError("Failed to fetch jobs data from the server");
 				setLoading(false);
