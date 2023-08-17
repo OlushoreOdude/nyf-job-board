@@ -24,8 +24,9 @@ a {
   flex-basis: calc(
     33.33% - 16px
   ); /* each section occupies 33.33% of the available width with some spacing */
-  padding: 16px;
+ /*  padding: 16px; */
   margin: 0;
+  
 }
 
 /* On avergae screens size, switch to Grid layout */
@@ -33,7 +34,7 @@ a {
   .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-template-rows: repeat(2, 1fr); /* Two rows */
+    grid-template-rows: repeat(2, auto); /* Two rows */
     /* grid-gap: 16px; */
   }
 
@@ -45,8 +46,11 @@ a {
   .section:nth-child(3) {
     grid-row: 2 / span 2; /* Span two rows */
     grid-column: 1 / span 2; /* Span two columns */
+    height: max-content;
   }
 }
+
+
 
 /* On small screens size, switch back to flex */
 @media screen and (max-width: 650px) {
@@ -60,4 +64,78 @@ a {
     grid-row: auto; /* Reset grid-row */
     grid-column: auto; /* Reset grid-column */
   }
+}
+
+.scrollable-content {
+  max-height: 80vh; /* Adjust the max height */
+  overflow: auto;
+  border: 1px solid #ccc; /* border for visual clarity */
+}
+
+/* Basic Button Styling */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.button:hover {
+  background-color: #258cd1;
+}
+
+/* Different Button Variations */
+.primary-button {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.secondary-button {
+  background-color: #e74c3c;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.secondary-button:hover {
+  background-color: #74ec23;
+  color: #140303;
+  
+}
+
+.outline-button {
+  background-color: transparent;
+  color: #3498db;
+  border: 2px solid #3498db;
+}
+
+.link-button {
+  background-color: transparent;
+  color: #3498db;
+  text-decoration: underline;
+}
+
+/* Disabled Button Styling */
+.button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+/* Button with Icon */
+.icon-button {
+  display: flex;
+  align-items: center;
+}
+
+.icon-button .icon {
+  margin-right: 8px;
 }

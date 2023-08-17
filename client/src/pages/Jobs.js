@@ -17,7 +17,7 @@ export function Jobs() {
 				return res.json();
 			})
 			.then((body) => {
-				setJobListings(body.data.jobs);
+				setJobListings(body.data);
 			})
 			.catch((err) => {
 				console.error(err);

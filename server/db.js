@@ -34,4 +34,5 @@ export default {
 		logger.debug("Postgres querying %O", args);
 		return pool.query.apply(pool, args);
 	},
+	pool: pool,
 };
