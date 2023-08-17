@@ -19,17 +19,11 @@ function Home() {
 		// Fetch data from server
 		const fetchJobs = async () => {
 			try {
-				//const response = await axios.get("/api/jobs");
-				// changed endpoint to match search //
-				const response = await axios.get("/api/jobs-Arbeit");
-
-				console.log(response.data.data);
-				setJobsData(response.data.data.slice(0, 10));
-				// if calling from /jobs which currently calls the raw api, your potensialy trying to access a propery that dose not exist, check the console log in the browser if unsure.
-				//calling from /jobs-Arbeit requires type convertion on the server
-				// calling from /jobs-db will not link response to search. filtering on frontend will mitigate this
+				const response = await axios.get("/api/jobs");
+				console.log("Response:", response.data); // Log the entire response data
+				setJobsData(response.data.data.dataT.slice(0,10));
 				setLoading(false);
-			} catch (error) {
+			}catch(error){
 				console.log(error);
 				setError("Failed to fetch jobs data from the server");
 				setLoading(false);

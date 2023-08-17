@@ -1,5 +1,5 @@
 import { Router } from "express";
-import axios from "axios";
+
 import dataJobs from "./utils/SampleData/transformRes_Arbeitnow.json";
 
 import routeHanlders from "./utils/routeHandlers";
@@ -11,25 +11,15 @@ const router = Router();
 router.get("/", (_, res) => {
 	res.json({ message: "JOBS BOARD" });
 });
-//test to chec return
+
 router.get("/jobs", async (_, res) => {
-	try {
-		const config = {
-			method: "get",
-			maxBodyLength: Infinity,
-			url: "https://www.arbeitnow.com/api/job-board-api",
-			headers: {},
-		};
-		const response = await axios(config);
-		//res.json( response );
-		res.json(response.data);
-		//res.json(response.data.data);
-	} catch (error) {
-		// console.log(error);
-		res
-			.status(500)
-			.json({ error: "Failed to fetch jobs data from external API" });
-	}
+  try {
+      res.json({ data : dataJobs });
+  } catch (error) {
+    // console.log(error);
+    res.status(500).json({ error: "Failed to fetch jobs data from external API" });
+  }
+
 });
 // route calls jobs form db
 router.get("/jobs-db", selectAllDbDataRH);
