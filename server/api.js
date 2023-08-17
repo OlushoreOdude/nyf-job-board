@@ -2,61 +2,66 @@ import { Router } from "express";
 import axios from "axios";
 import dataJobs from "./utils/SampleData/transformRes_Arbeitnow.json";
 
-// import data from data.json at root.
-import jobsData from "../data.json";
-import myRouteHandler from "./utils/refreshData";
+import routeHanlders from "./utils/routeHandlers";
+const { refreshDbWithAllApi, selectAllDbDataRH } = routeHanlders;
+
 const router = Router();
-import arbeitNowRouteRH from "./utils/arbeitNowRoute";
-const { arbeitNowRoute } = arbeitNowRouteRH;
+
 
 router.get("/", (_, res) => {
 	res.json({ message: "JOBS BOARD" });
 });
-
-// Route to fetch jobs data from the external API
-
+//test to chec return
 router.get("/jobs", async (_, res) => {
-  try {
-    const config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: "https://www.arbeitnow.com/api/job-board-api",
-      headers: {},
-    };
+	try {
+		const config = {
+			method: "get",
+			maxBodyLength: Infinity,
+			url: "https://www.arbeitnow.com/api/job-board-api",
+			headers: {},
+		};
+		const response = await axios(config);
+		//res.json( response );
+		res.json(response.data);
+		//res.json(response.data.data);
+	} catch (error) {
+		// console.log(error);
+		res
+			.status(500)
+			.json({ error: "Failed to fetch jobs data from external API" });
+	}
+});
+// route calls jobs form db
+router.get("/jobs-db", selectAllDbDataRH);
 
-    const response = await axios(config);
-    res.json(response.data);
-  } catch (error) {
-    // console.log(error);
-    res.status(500).json({ error: "Failed to fetch jobs data from external API" });
-  }
+// route refreshes jobs on db
+router.get("/refresh-db", refreshDbWithAllApi);
+
+
+router.get("/jobs-Arbeit", async (req, res) => {
+	//console.log(req.query, "this is query object");
+	//query object always returns a strig that need to be converted to the required data type. (type conversions)
+
+	const isRemote = req.query.is_remote === "true";
+	const location = req.query.location;
+	const title = req.query.title;
+	//console.log(dataJobs.dataT, "data jobs");
+	// exact match is not user friendly
+	//.includes() checks for partial matches
+	const output = dataJobs.dataT.filter((job) => {
+		return (
+			job.is_remote === isRemote ||
+			job.registered_office.includes(location) || // Check for partial location match
+			job.job_title.includes(title) // Check for partial title match
+		);
+	});
+
+	console.log(output.length, "output");
+	//const newOutput = {
+	//  company_name: output.job_company_name,location: output.registered_office,title:output.job_title,
+	//};
+	res.json({ data: output });
 });
 
-router.get("/jobs-Arbeit", async(req,res) =>{
-  const isRemote = req.query.is_remote;
-  const location = req.query.location;
-  const title =req.query.title;
-  const output = dataJobs.dataT.filter((job) =>{
-    return(
-      job.is_remote == isRemote || job.registered_office == location || job.job_title == title
-    );
-  });
-    //const newOutput = {
-      //  company_name: output.job_company_name,location: output.registered_office,title:output.job_title,
-    //};
-  res.json({ data: output });
-});
-
-
-// route for jobsData
-router.get("/jobs-test", (_, res) => {
-  res.json({ data: jobsData });
-});
-
-// route for Arbeitnow data
-router.get("/arbeitnow-test", arbeitNowRoute);
-
-// route for refresh jobs
-router.get("/jobs-refresh-test", myRouteHandler);
 export default router;
 

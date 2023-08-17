@@ -19,9 +19,15 @@ function Home() {
 		// Fetch data from server
 		const fetchJobs = async () => {
 			try {
-				const response = await axios.get("/api/jobs");
-				console.log(response);
-				setJobsData(response.data.data.slice(0, 10)); // Only take the first 10 jobs
+				//const response = await axios.get("/api/jobs");
+				// changed endpoint to match search //
+				const response = await axios.get("/api/jobs-Arbeit");
+
+				console.log(response.data.data);
+				setJobsData(response.data.data.slice(0, 10));
+				// if calling from /jobs which currently calls the raw api, your potensialy trying to access a propery that dose not exist, check the console log in the browser if unsure.
+				//calling from /jobs-Arbeit requires type convertion on the server
+				// calling from /jobs-db will not link response to search. filtering on frontend will mitigate this
 				setLoading(false);
 			} catch (error) {
 				console.log(error);
@@ -57,10 +63,15 @@ const handleJobClick = (job) => {
 
 	const handleSearchByTitle = async (titleFilterInput)=>{
 		const { title, location, is_remote } = titleFilterInput;
-		const response = await axios.get(`/api/jobs-Arbeit?title=${title}&location=${location}&is_remote=${is_remote}`);
+		// type conversions on server was the main issue, server updated
+		//good idea but wouldnt work without json file or querying db
+		//get all data and search/filter locally is best for mvp
+		const response = await axios.get(
+			`/api/jobs-Arbeit?title=${title}&location=${location}&is_remote=${is_remote}`
+		);
 		console.log(response.data);
 		setJobsData(response.data.data.slice(0, 10));
-};
+	};
 
 	return (
 		<main role="main" className="main-content">
