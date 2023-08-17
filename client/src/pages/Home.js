@@ -57,10 +57,15 @@ const handleJobClick = (job) => {
 
 	const handleSearchByTitle = async (titleFilterInput)=>{
 		const { title, location, is_remote } = titleFilterInput;
-		const response = await axios.get(`/api/jobs-Arbeit?title=${title}&location=${location}&is_remote=${is_remote}`);
+		// type conversions on server was the main issue, server updated
+		//good idea but wouldnt work without json file or querying db
+		//get all data and search/filter locally is best for mvp
+		const response = await axios.get(
+			`/api/jobs-Arbeit?title=${title}&location=${location}&is_remote=${is_remote}`
+		);
 		console.log(response.data);
 		setJobsData(response.data.data.slice(0, 10));
-};
+	};
 
 	return (
 		<main role="main" className="main-content">

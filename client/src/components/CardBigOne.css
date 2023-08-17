@@ -57,12 +57,19 @@ button div,
   color: #666;
 }
 
+.limit-text {
+  overflow: auto;
+  text-overflow: ellipsis;
+  
+  max-height: 300px;
+  
+}
 .card-button .card {
   margin: 0;
   display: block;
 }
 .card-button {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .button {
@@ -72,6 +79,7 @@ button div,
   margin: 0.25rem;
 }
 
-.bigone {
+/* .bigone {
   height: 100vh;
 }
+ */
