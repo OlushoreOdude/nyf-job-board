@@ -14,7 +14,7 @@ const SearchOnDb = ({ searchInput, handleSearchInputChange, handleSubmit }) => {
 							onChange={handleSearchInputChange}
 						/>
 					</label>
-					<button className="">Search button </button>
+					<button className=""></button>
 				</form>
 			</div>
 		</div>

@@ -126,7 +126,7 @@ export function SearchDb() {
 		<div className="container">
 			<section className="section">
 				<h1 className="message" data-qa="message">
-					{`SEARCH  ${message} `}
+					{"SEARCH JOBS DATABASE"}
 				</h1>
 				<SearchOnDb
 					search={search}
@@ -141,7 +141,7 @@ export function SearchDb() {
 				) : (
 					<p>Search for a job</p>
 				)}
-				<h2>press to refresh db</h2>
+				<h2>Press to Refresh database</h2>
 				<button className="secondary-button" onClick={handleRefresh}>
 					Admin refresh
 				</button>
