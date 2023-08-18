@@ -21,6 +21,8 @@ function Home() {
 				const response = await axios.get("/api/jobs-db");
 				console.log("Response:", response.data); // Log the entire response data
 				setJobsData(response.data.data.slice(0, 10));
+				setSelectedJob(response.data.data[0]);
+
 				setLoading(false);
 			} catch (error) {
 				console.log(error);

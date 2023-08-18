@@ -21,7 +21,7 @@ const Header = () => {
                     Home
                 </NavLink>
                 <NavLink to="/searchjobsdb" className="nav-link">
-                    SearchDb
+                    Login
                 </NavLink>
             </nav>
         </header>
