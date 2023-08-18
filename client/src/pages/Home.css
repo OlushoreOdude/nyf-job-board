@@ -22,7 +22,8 @@
 
 .selected-job-section {
 	grid-column: 7 / span 3;
-	border: 0.0625rem solid #a9a9a9;
+	border-right: 1px solid #a9a9a9; 
+  border-left: 1px solid #a9a9a9; 
 	padding: 1rem;
 	scroll-margin-top: 1em;
 }
