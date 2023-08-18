@@ -8,7 +8,6 @@ import SelectedJob from "../components/SelectedJob.jsx";
 import "../global.css";
 import "./Home.css";
 
-
 function Home() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -19,11 +18,13 @@ function Home() {
 		// Fetch data from server
 		const fetchJobs = async () => {
 			try {
-				const response = await axios.get("/api/jobs");
+				const response = await axios.get("/api/jobs-db");
 				console.log("Response:", response.data); // Log the entire response data
-				setJobsData(response.data.data.dataT.slice(0,10));
+				setJobsData(response.data.data.slice(0, 10));
+				setSelectedJob(response.data.data[0]);
+
 				setLoading(false);
-			}catch(error){
+			} catch (error) {
 				console.log(error);
 				setError("Failed to fetch jobs data from the server");
 				setLoading(false);
@@ -33,15 +34,14 @@ function Home() {
 		fetchJobs();
 	}, []);
 
-const handleJobClick = (job) => {
-	setSelectedJob(job);
-	// Find the selected job section and scroll to it
-	const selectedJobSection = document.querySelector(".selected-job-section");
-	if (selectedJobSection) {
-		selectedJobSection.scrollIntoView({ behavior: "smooth" });
-	}
-};
-
+	const handleJobClick = (job) => {
+		setSelectedJob(job);
+		// Find the selected job section and scroll to it
+		const selectedJobSection = document.querySelector(".selected-job-section");
+		if (selectedJobSection) {
+			selectedJobSection.scrollIntoView({ behavior: "smooth" });
+		}
+	};
 
 	if (loading) {
 		return <p>Loading...</p>;
@@ -55,23 +55,34 @@ const handleJobClick = (job) => {
 		return <p>No jobs data available.</p>;
 	}
 
-	const handleSearchByTitle = async (titleFilterInput)=>{
-		const { title, location, is_remote } = titleFilterInput;
-		// type conversions on server was the main issue, server updated
-		//good idea but wouldnt work without json file or querying db
-		//get all data and search/filter locally is best for mvp
-		const response = await axios.get(
-			`/api/jobs-Arbeit?title=${title}&location=${location}&is_remote=${is_remote}`
+	const handleSearchByTitle = async (titleFilterInput) => {
+		console.log({ jobsData });
+		setJobsData([]);
+		const { title, location, is_remote: remote } = titleFilterInput;
+		console.log(titleFilterInput);
+		const getAllJobs = await axios.get("/api/jobs-db");
+		console.log("get all the jobs ", getAllJobs);
+		const filteredJobs = getAllJobs.data.data.filter(
+			({ job_title, registered_office, is_remote }) => {
+				return (
+					job_title.toLowerCase().includes(title.toLowerCase()) &&
+					registered_office.toLowerCase().includes(location.toLowerCase()) &&
+					is_remote === remote
+				);
+			}
 		);
-		console.log(response.data);
-		setJobsData(response.data.data.slice(0, 10));
+		console.log("get all the filtered jobs ", filteredJobs);
+		setJobsData(filteredJobs.slice(0, 10));
 	};
 
 	return (
 		<main role="main" className="main-content">
 			{/* First Column: Job Search */}
 			<div className="job-search-section">
-				<SearchForm onClick={handleSearchByTitle} className="job-search-input" />
+				<SearchForm
+					onClick={handleSearchByTitle}
+					className="job-search-input"
+				/>
 			</div>
 
 			{/* Second Column: Job Card Container which will show 10 job card*/}
