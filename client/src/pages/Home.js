@@ -19,9 +19,9 @@ function Home() {
 		// Fetch data from server
 		const fetchJobs = async () => {
 			try {
-				const response = await axios.get("/api/jobs");
+				const response = await axios.get("/api/jobs-db");
 				console.log("Response:", response.data); // Log the entire response data
-				setJobsData(response.data.data.dataT.slice(0,10));
+				setJobsData(response.data.data.slice(0,10));
 				setLoading(false);
 			}catch(error){
 				console.log(error);

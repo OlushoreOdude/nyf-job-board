@@ -7,6 +7,7 @@ export const selectAllDbDataRH = async (req, res) => {
 	let client;
 
   try {
+    console.log("testing..",process.env.DATABASE_URL);
     client = await pool.connect();
     const result = await client.query("SELECT * FROM testjob_list");
     const jobs = result.rows;
