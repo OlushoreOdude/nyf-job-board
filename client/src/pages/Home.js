@@ -54,22 +54,20 @@ function Home() {
 	}
 
 	const handleSearchByTitle = async (titleFilterInput) => {
+		console.log({ jobsData });
+		setJobsData([]);
 		const { title, location, is_remote: remote } = titleFilterInput;
 		console.log(titleFilterInput);
 		const getAllJobs = await axios.get("/api/jobs-db");
 		console.log("get all the jobs ", getAllJobs);
 		const filteredJobs = getAllJobs.data.data.filter(
 			({ job_title, registered_office, is_remote }) => {
-				console.log(job_title.toLowerCase().includes(title.toLowerCase()));
 				return (
 					job_title.toLowerCase().includes(title.toLowerCase()) &&
 					registered_office.toLowerCase().includes(location.toLowerCase()) &&
 					is_remote === remote
 				);
 			}
-			// job_title.toLowerCase().includes(title.toLowerCase()) ||
-			// registered_office.toLowerCase().includes(location.toLowerCase()) ||
-			// is_remote.includes(remote)
 		);
 		console.log("get all the filtered jobs ", filteredJobs);
 		setJobsData(filteredJobs.slice(0, 10));
