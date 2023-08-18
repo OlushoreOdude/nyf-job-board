@@ -19,7 +19,7 @@ function Home() {
 		// Fetch data from server
 		const fetchJobs = async () => {
 			try {
-				const response = await axios.get("/api/jobs-db");
+				const response = await axios.get("https://starter-kit-5a5s.onrender.com/api/jobs-db");
 				console.log("Response:", response.data); // Log the entire response data
 				setJobsData(response.data.data.slice(0,10));
 				setLoading(false);
@@ -56,15 +56,22 @@ const handleJobClick = (job) => {
 	}
 
 	const handleSearchByTitle = async (titleFilterInput)=>{
-		const { title, location, is_remote } = titleFilterInput;
+		const { title, location, is_remote:remote } = titleFilterInput;
 		// type conversions on server was the main issue, server updated
 		//good idea but wouldnt work without json file or querying db
 		//get all data and search/filter locally is best for mvp
-		const response = await axios.get(
-			`/api/jobs-Arbeit?title=${title}&location=${location}&is_remote=${is_remote}`
+		const getAllJobs = await axios.get(
+			"https://starter-kit-5a5s.onrender.com/api/jobs-db"
 		);
-		console.log(response.data);
-		setJobsData(response.data.data.slice(0, 10));
+		console.log(getAllJobs.data);
+		const filteredJobs = getAllJobs.data.filter(
+			({ job_title, registered_office, is_remote }) =>
+				job_title.toLowerCase().includes(title.toLowerCase()) ||
+				registered_office.toLowerCase().includes(location.toLowerCase()) ||
+				is_remote.includes(remote)
+		);
+		console.log(filteredJobs);
+		setJobsData(filteredJobs.slice(0, 10));
 	};
 
 	return (
